@@ -24,6 +24,7 @@
 
             body div.circle:nth-child(2) {
                 background-color: blue;
+                transition-delay: 1s;
             }
         </style>
     </head>
@@ -37,7 +38,7 @@
 
             const body = document.querySelector('body');
 
-            document.addEventListener('click', function (event) {
+            document.addEventListener('mousemove', function (event) {
                 const circle = circles[Math.floor(Math.random() * circles.length)];
 
                 circle.style.top = event.clientY - 50 + 'px';
@@ -52,4 +53,8 @@
                 body.style.backgroundColor = invertedBackgroundColor;
 
                 circle.style.transform = `scale(${Math.random() * 2})`;
-                circle.sty
+                circle.style.borderRadius = Math.random() * 100 + '%';
+            });
+        </script>
+    </body>
+</html>
