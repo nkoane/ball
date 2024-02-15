@@ -35,4 +35,16 @@
                 circle.style.left = event.clientX - 50 + 'px';
                 const randomRedColor = Math.floor(Math.random() * 256);
                 const randomGreenColor = Math.floor(Math.random() * 256);
-                const randomBlueC
+                const randomBlueColor = Math.floor(Math.random() * 256);
+                const backgroundColor = `rgb(${randomRedColor}, ${randomGreenColor}, ${randomBlueColor})`;
+                const invertedBackgroundColor = `rgb(${255 - randomRedColor}, ${255 - randomGreenColor}, ${255 - randomBlueColor})`;
+
+                circle.style.backgroundColor = backgroundColor;
+                body.style.backgroundColor = invertedBackgroundColor;
+
+                circle.style.transform = `scale(${Math.random() * 2})`;
+                circle.style.borderRadius = Math.random() * 100 + '%';
+            });
+        </script>
+    </body>
+</html>
