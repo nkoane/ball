@@ -21,16 +21,26 @@
                 margin: 0;
                 transition: all 1s ease-in-out;
             }
+
+            body div.circle:nth-child(2) {
+                background-color: blue;
+                transition-delay: 1s;
+            }
         </style>
     </head>
     <body>
         <div class="circle"></div>
+        <div class="circle"></div>
 
         <script>
-            const circle = document.querySelector('div');
+            // const circle = document.querySelector('div');
+            const circles = document.querySelectorAll('div.circle');
+
             const body = document.querySelector('body');
 
-            document.addEventListener('click', function (event) {
+            document.addEventListener('mousemove', function (event) {
+                const circle = circles[Math.floor(Math.random() * circles.length)];
+
                 circle.style.top = event.clientY - 50 + 'px';
                 circle.style.left = event.clientX - 50 + 'px';
                 const randomRedColor = Math.floor(Math.random() * 256);
