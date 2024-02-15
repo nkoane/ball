@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ballin' Out Of Control</title>
+        <style>
+            .circle {
+                background-color: red;
+                width: 100px;
+                aspect-ratio: 1;
+                border-radius: 100%;
+                position: relative;
+                left: 400px;
+                top: 200px;
+                transition: all 1s ease-in-out;
+            }
+
+            body {
+                transition: all 1s ease-in-out;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="circle"></div>
+
+        <script>
+            const circle = document.querySelector('div');
+            const body = document.querySelector('body');
+
+            document.addEventListener('click', function (event) {
+                circle.style.top = event.clientY - 50 + 'px';
+                circle.style.left = event.clientX - 50 + 'px';
+                const randomRedColor = Math.floor(Math.random() * 256);
+                const randomGreenColor = Math.floor(Math.random() * 256);
+                const randomBlueColor = Math.floor(Math.random() * 256);
+                const backgroundColor = `rgb(${randomRedColor}, ${randomGreenColor}, ${randomBlueColor})`;
+                const invertedBackgroundColor = `rgb(${255 - randomRedColor}, ${255 - randomGreenColor}, ${255 - randomBlueColor})`;
+
+                circle.style.backgroundColor = backgroundColor;
+                body.style.backgroundColor = invertedBackgroundColor;
+            });
+        </script>
+    </body>
+</html>
